@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://dn5f5diuu0bx6"]
+
+[ext_resource type="Script" path="res://Scripts/dice_ui.gd" id="1_e3k0c"]
+[ext_resource type="PackedScene" uid="uid://cl201tp8ip28x" path="res://Scenes/d_4.tscn" id="2_cdr0h"]
+[ext_resource type="PackedScene" uid="uid://c0m4q6f7tcyhn" path="res://Scenes/d_6.tscn" id="3_d660g"]
+[ext_resource type="PackedScene" uid="uid://bta8y0mgb1uy3" path="res://Scenes/d_8.tscn" id="4_uf8jp"]
+[ext_resource type="PackedScene" uid="uid://btt1hnfro535o" path="res://Scenes/d_10.tscn" id="5_600wh"]
+[ext_resource type="PackedScene" uid="uid://co7088rxpu6ti" path="res://Scenes/d_12.tscn" id="6_amgp8"]
+[ext_resource type="PackedScene" uid="uid://d1fmvqs5veg78" path="res://Scenes/d_20.tscn" id="7_h4rkg"]
+
+[node name="DiceUI" type="Control"]
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e3k0c")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CenterContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="d4" parent="CenterContainer/MarginContainer/HBoxContainer" instance=ExtResource("2_cdr0h")]
+layout_mode = 2
+
+[node name="d6" parent="CenterContainer/MarginContainer/HBoxContainer" instance=ExtResource("3_d660g")]
+layout_mode = 2
+
+[node name="d8" parent="CenterContainer/MarginContainer/HBoxContainer" instance=ExtResource("4_uf8jp")]
+layout_mode = 2
+
+[node name="d10" parent="CenterContainer/MarginContainer/HBoxContainer" instance=ExtResource("5_600wh")]
+layout_mode = 2
+
+[node name="d12" parent="CenterContainer/MarginContainer/HBoxContainer" instance=ExtResource("6_amgp8")]
+layout_mode = 2
+
+[node name="d20" parent="CenterContainer/MarginContainer/HBoxContainer" instance=ExtResource("7_h4rkg")]
+layout_mode = 2

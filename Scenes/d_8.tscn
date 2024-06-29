@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://bta8y0mgb1uy3"]
+
+[ext_resource type="Texture2D" uid="uid://bbnxyo7vkm026" path="res://Resoures/bg_gradient.tres" id="1_d41tm"]
+[ext_resource type="Script" path="res://Scripts/d8.gd" id="1_f4ac4"]
+[ext_resource type="SpriteFrames" uid="uid://1dkrq5yw2xl0" path="res://Resoures/Dice.tres" id="2_v65k2"]
+[ext_resource type="LabelSettings" uid="uid://cqfaka5pqej23" path="res://Resoures/dice_label_no_font.tres" id="4_odbkf"]
+
+[node name="d8" type="MarginContainer" node_paths=PackedStringArray("sprite", "dice_label", "num_of_dice_input", "rollbutton")]
+custom_minimum_size = Vector2(70, 160)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_f4ac4")
+sprite = NodePath("Dice/Sprite/DiceSprite")
+dice_label = NodePath("Dice/Sprite/Label")
+num_of_dice_input = NodePath("Dice/NumOfDice")
+rollbutton = NodePath("Dice/RollButton")
+dice = "d8"
+
+[node name="Dice" type="VBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="Sprite" type="Control" parent="Dice"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="bgGradient" type="TextureRect" parent="Dice/Sprite"]
+layout_mode = 0
+offset_left = 3.0
+offset_right = 67.0
+offset_bottom = 64.0
+rotation = -1.5708
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("1_d41tm")
+
+[node name="DiceSprite" type="AnimatedSprite2D" parent="Dice/Sprite"]
+position = Vector2(35, 32)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("2_v65k2")
+animation = &"d8"
+
+[node name="Label" type="Label" parent="Dice/Sprite"]
+layout_mode = 0
+offset_left = 3.0
+offset_right = 67.0
+offset_bottom = 64.0
+label_settings = ExtResource("4_odbkf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NumOfDice" type="LineEdit" parent="Dice"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+placeholder_text = "# of"
+alignment = 1
+virtual_keyboard_type = 2
+middle_mouse_paste_enabled = false
+
+[node name="RollButton" type="Button" parent="Dice"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+text = "d8"
+
+[connection signal="pressed" from="Dice/RollButton" to="." method="_on_roll_button_pressed"]
