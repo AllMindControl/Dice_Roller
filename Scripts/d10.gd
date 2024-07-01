@@ -22,4 +22,5 @@ func _on_roll_button_pressed():
 		num_of_dice = int(num_of_dice_input.text)
 	dice_result_array = die._roll_multiple_of_dice(num_of_dice)
 	var total = die._sum_of_rolls(dice_result_array)
+	sprite.play()
 	dice_label.text = str(total)
